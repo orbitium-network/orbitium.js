@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message MsgCreateUser {
+    string creator = 1;
+    string username = 2;
+    string referralCode = 3;
+    string countryCode = 4;
+    string faceId = 5;
+}
