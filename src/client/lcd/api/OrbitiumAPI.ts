@@ -51,6 +51,10 @@ export interface GetClaimableRewardsRes {
   commnityGift: Coin;
 }
 
+export interface GetLpClaimableBalanceRes {
+  claimableBalance: Coin;
+}
+
 export interface GetTotalReferralsRes {
   referrals: number;
 }
@@ -114,6 +118,17 @@ export class OrbitiumAPI extends BaseAPI {
     return this.c
       .get<GetClaimableRewardsRes>(
         `/orbitium/orbitium/get_claimable_rewards/${userAddress}`
+      )
+      .then(d => d);
+  }
+
+  public async getLpClaimableBalance(
+    userAddress: AccAddress,
+    pairContractAddr:String
+  ): Promise<GetLpClaimableBalanceRes> {
+    return this.c
+      .get<GetLpClaimableBalanceRes>(
+        `/orbitium/orbitium/get_lp_claimable_balance/${userAddress}/${pairContractAddr}`
       )
       .then(d => d);
   }

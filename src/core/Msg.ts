@@ -90,6 +90,7 @@ import {
   MsgCreateUser,
   MsgRemoveUser,
   OrbitiumMsg,
+  MsgWithdrawLiquidityReward
 } from './orbitium/msgs';
 import { Any } from '@terra-money/terra.proto/google/protobuf/any';
 
@@ -219,6 +220,8 @@ export namespace Msg {
         return MsgClaimDailyReward.fromAmino(data);
       case 'orbitium/MsgRemoveUser':
         return MsgRemoveUser.fromAmino(data);
+      case 'orbitium/MsgWithdrawLiquidityReward':
+        return MsgWithdrawLiquidityReward.fromAmino(data)
 
       // market
       case 'market/MsgSwap':
@@ -342,6 +345,8 @@ export namespace Msg {
         return MsgClaimDailyReward.fromData(data);
       case '/orbitium.orbitium.MsgRemoveUser':
         return MsgRemoveUser.fromData(data);
+      case '/orbitium.orbitium.MsgWithdrawLiquidityReward':
+        return MsgWithdrawLiquidityReward.fromData(data)
 
       // market
       case '/terra.market.v1beta1.MsgSwap':
@@ -474,6 +479,8 @@ export namespace Msg {
         return MsgClaimDailyReward.unpackAny(proto);
       case '/orbitium.orbitium.MsgRemoveUser':
         return MsgRemoveUser.unpackAny(proto);
+      case '/orbitium.orbitium.MsgWithdrawLiquidityReward':
+        return MsgWithdrawLiquidityReward.unpackAny(proto)
 
       // bank
       case '/cosmos.bank.v1beta1.MsgSend':

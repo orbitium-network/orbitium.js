@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message MsgWithdrawLiquidityReward {
+    string creator = 1;
+    string pairContractAddress = 2;
+}
